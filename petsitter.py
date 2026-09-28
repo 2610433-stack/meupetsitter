@@ -3,3 +3,4 @@ cachorro=int(input('Escreva um número: '))
 gato=int(input('Escreva outro número: '))
 total=gato+cachorro
 print(f'Hoje transportamos {cachorro} cachorros e {gato} gatos. ')
+print('Esperamos com carinho pelo seu pet')
