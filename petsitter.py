@@ -5,3 +5,4 @@ total=gato+cachorro
 print(f'Hoje transportamos {cachorro} cachorros e {gato} gatos. ')
 print('Esperamos com carinho pelo seu pet')
 print('Seu pet não quer ficar sozinho? Deixe conosco e viaje tranquilo')
+print("Pensando com quem deixar seu pet sem precisar se preocupar?")
