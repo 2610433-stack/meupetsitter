@@ -1,293 +1,331 @@
+!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PetCare Sitter — Acompanhamento Auditável para o Seu Pet</title>
+    <style>
+        :root {
+            --primary: #0d9488;
+            --primary-dark: #0f766e;
+            --secondary: #f59e0b;
+            --dark: #1e293b;
+            --light: #f8fafc;
+            --gray: #64748b;
+            --gray-light: #e2e8f0;
+            --success: #22c55e;
+            --warning: #eab308;
+            --danger: #ef4444;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+        }
+
+        body {
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: #ffffff;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .logo-img {
+            height: 150px;
+            width: auto;
+            border-radius: 8px;
+            object-fit: cover;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s;
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn-primary {
+            background-color: var(--primary);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background-color: var(--secondary);
+            color: white;
+        }
+
+        .btn-secondary:hover {
+            background-color: #d97706;
+            transform: translateY(-2px);
+        }
+
+        .hero {
+            padding: 5rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .hero-title {
+            font-size: 2.8rem;
+            color: var(--dark);
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-title span {
+            color: var(--primary);
+        }
+
+        .hero-subtitle {
+            font-size: 1.2rem;
+            color: var(--gray);
+            margin-bottom: 2rem;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .hero-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 16px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+            border-left: 6px solid var(--primary);
+        }
+
+        .badge-live {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: #ccfbf1;
+            color: var(--primary-dark);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .pulse-dot {
+            width: 8px;
+            height: 8px;
+            background-color: var(--primary);
+            border-radius: 50%;
+            box-shadow: 0 0 0 0 rgba(13, 148, 136, 0.7);
+            animation: pulse 1.6s infinite;
+        }
+
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(13, 148, 136, 0.7); }
+            70% { box-shadow: 0 0 0 8px rgba(13, 148, 136, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(13, 148, 136, 0); }
+        }
+
+        .section {
+            padding: 5rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 3.5rem;
+        }
+
+        .section-header h2 {
+            font-size: 2.2rem;
+            color: var(--dark);
+            margin-bottom: 0.8rem;
+        }
+
+        .section-header p {
+            color: var(--gray);
+            font-size: 1.1rem;
+        }
+
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .card {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.04);
+            border: 1px solid var(--gray-light);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+        }
+
+        .card-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.8rem;
+            color: var(--dark);
+        }
+
+        .card p {
+            color: var(--gray);
+            font-size: 0.95rem;
+        }
+
+        .steps-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .step-item {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            text-align: center;
+            position: relative;
+            border: 1px solid var(--gray-light);
+        }
+
+        .step-number {
+            width: 40px;
+            height: 40px;
+            background: var(--primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            margin: 0 auto 1rem;
+        }
+
+        .tech-section {
+            background-color: #f1f5f9;
+            padding: 5rem 2rem;
+        }
+
+        .tech-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+
+        .tech-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            border-top: 4px solid var(--primary);
+        }
+
+        .alert-levels {
+            display: flex;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .level-tag {
+            padding: 0.3rem 0.6rem;
+            border-radius: 6px;
+            font-size: 0.75rem;
+            font-weight: 700;
+        }
+
+        .level-green { background: #dcfce7; color: #15803d; }
+        .level-yellow { background: #fef9c3; color: #a16207; }
+        .level-red { background: #fee2e2; color: #b91c1c; }
+
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 3rem 2rem;
+            text-align: center;
+        }
+
+        footer p {
+            color: var(--gray);
+            margin-top: 1rem;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .hero {
+                grid-template-columns: 1fr;
+                padding: 3rem 1.5rem;
+            }
+            .nav-links {
+                display: none;
+            }
+        }
     </style>
 </head>
 <body>
-
-    <!-- Header Navigation -->
-    <header>
-        <div class="nav-container">
-            <div style="display: flex; align-items: center; gap: 15px;">
-        <img src="babadepet.jpg" alt="Cão" width="160" height="160">
-        <h1 style="margin: 0;"></h1>
-            <div class="logo">
-                🐾 PetCare Sitter
-            </div>
-            <ul class="nav-links">
-                <li><a href="#vantagens">Vantagens</a></li>
-                <li><a href="#como-funciona">Como Funciona</a></li>
-                <li><a href="#tecnologia">Segurança & LGPD</a></li>
-            </ul>
-            <a href="#contato" class="btn btn-primary">Começar Agora</a>
-        </div>
-    </header>
-
-    <!-- Hero Section -->
-    <section class="hero">
-        <div>
-            <h1 class="hero-title">Não apenas encontre quem cuide do seu pet.</h1>
-                <h1 class="hero-title">Saiba exatamente como ele foi cuidado.</h1>
-            <p class="hero-subtitle">Plataforma com acompanhamento e comprovação auditável de visitas de Pet Sitter em tempo real. Tranqulidade absoluta para você e conforto para o seu pet.</p>
-            <div class="hero-buttons">
-                <a href="#tutores" class="btn btn-primary">Encontrar Pet Sitter</a>
-                <a href="#sitters" class="btn btn-secondary">Sou Pet Sitter</a>
-            </div>
-        </div>
-
-        <div class="hero-card">
-            <div class="badge-live">
-                <div class="pulse-dot"></div> Diário da Visita ao Vivo
-            </div>
-            <h3 style="margin-bottom: 0.5rem;">Visita em Andamento</h3>
-            <p style="color: var(--gray); font-size: 0.9rem; margin-bottom: 1rem;">Cuidador: <strong>Mariana S.</strong> (Check-in verificado por GPS)</p>
-            
-            <div style="background: var(--light); padding: 1rem; border-radius: 8px; font-size: 0.85rem;">
-                <p>✓ Ração e Água Limpa — <span style="color: var(--success); font-weight:600;">Foto Comprovada</span></p>
-                <p>✓ Medicação das 14h — <span style="color: var(--success); font-weight:600;">Foto Comprovada</span></p>
-                <p>✓ Tempo de Permanência: <strong>45 min (em curso)</strong></p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Vantagens do Serviço -->
-    <section class="section" id="vantagens">
-        <div class="section-header">
-            <h2>Por Que Escolher o Atendimento Domiciliar?</h2>
-            <p>Os benefícios do cuidado no próprio ambiente onde o pet já está habituado</p>
-        </div>
-
-        <div class="grid-3">
-            <div class="card">
-                <div class="card-icon">🛡️</div>
-                <h3>Saúde & Proteção</h3>
-                <p>Baixo risco de doenças contagiosas, parasitas, pulgas e carrapatos ao evitar hospedagens coletivas.</p>
-            </div>
-
-            <div class="card">
-                <div class="card-icon">🏠</div>
-                <h3>Conforto no Próprio Lar</h3>
-                <p>O pet permanece na sua rotina habitual, reduzindo o estresse de adaptação e ansiedade de separação.</p>
-            </div>
-
-            <div class="card">
-                <div class="card-icon">🎯</div>
-                <h3>Cuidado Individualizado</h3>
-                <p>Ideal para gatos, filhotes sem vacinação completa, animais idosos, com necessidades especiais ou antissociais.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Ciclo Auditável em 5 Etapas -->
-    <section class="section" id="como-funciona" style="background: white; border-radius: 20px;">
-        <div class="section-header">
-            <h2>Ciclo Auditável em 5 Etapas</h2>
-            <p>Garantia técnica e transparência do início ao fim de cada visita</p>
-        </div>
-
-        <div class="steps-container">
-            <div class="step-item">
-                <div class="step-number">1</div>
-                <h4>Encontrar</h4>
-                <p style="font-size: 0.85rem; color: var(--gray);">Seleção por perfil qualificado</p>
-            </div>
-
-            <div class="step-item">
-                <div class="step-number">2</div>
-                <h4>Combinar</h4>
-                <p style="font-size: 0.85rem; color: var(--gray);">Plano de cuidados personalizado</p>
-            </div>
-
-            <div class="step-item">
-                <div class="step-number">3</div>
-                <h4>Acompanhar</h4>
-                <p style="font-size: 0.85rem; color: var(--gray);">Check-in por GPS e alertas</p>
-            </div>
-
-            <div class="step-item">
-                <div class="step-number">4</div>
-                <h4>Comprovar</h4>
-                <p style="font-size: 0.85rem; color: var(--gray);">Checklist verificado por fotos</p>
-            </div>
-
-            <div class="step-item">
-                <div class="step-number">5</div>
-                <h4>Avaliar</h4>
-                <p style="font-size: 0.85rem; color: var(--gray);">Diário consolidado e Índice de Confiabilidade</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Tecnologia e Segurança -->
-    <div class="tech-section" id="tecnologia">
-        <div class="section-header">
-            <h2>Diferenciais de Tecnologia e Segurança</h2>
-            <p>Auditoria objetiva e proteção de dados rigorosa (LGPD-First)</p>
-        </div>
-
-        <div class="tech-grid">
-            <div class="tech-card">
-                <h3>📍 Check-in por Geolocalização</h3>
-                <p>Validação geográfica de entrada e saída no raio exato do imóvel. Sem rastreamento contínuo no trajeto para respeitar a privacidade do cuidador.</p>
-            </div>
-
-            <div class="tech-card">
-                <h3>📸 Checklist Dinâmico por Foto</h3>
-                <p>O cuidador comprova a execução de cada rotina (alimentação, água limpa e administração de remédios) anexando fotos com horário exato.</p>
-            </div>
-
-            <div class="tech-card">
-                <h3>🚨 Alertas de Ocorrência</h3>
-                <p>Notificação imediata de imprevistos estruturados por níveis de severidade para ação rápida do tutor.</p>
-                <div class="alert-levels">
-                    <span class="level-tag level-green">Verde: Normal</span>
-                    <span class="level-tag level-yellow">Amarelo: Atenção</span>
-                    <span class="level-tag level-red">Vermelho: Emergência</span>
-                </div>
-            </div>
-
-            <div class="tech-card">
-                <h3>📊 Índice de Confiabilidade</h3>
-                <p>Pontuação objetiva do Pet Sitter calculada por algoritmos com base no histórico real de pontualidade, checklists cumpridos e avaliações.</p>
-            </div>
-        </div>
-    </div>
-
-    <!-- Footer -->
-    <footer>
-        <div class="logo" style="justify-content: center; color: white;">
-            🐾 PetCare Sitter
-        </div>
-        <p>Tecnologia e Segurança Pet — Acompanhamento e Comprovação Verificável de Serviços Domiciliares.</p>
-        <p>© 2026 PetCare Sitter. Todos os direitos reservados.</p>
-    </footer>
-
-</body>
-</html>
-
-        <div class="hero-card">
-            <div class="badge-live">
-                <div class="pulse-dot"></div> Diário da Visita ao Vivo
-            </div>
-            <h3 style="margin-bottom: 0.5rem;">Visita em Andamento</h3>
-            <p style="color: var(--gray); font-size: 0.9rem; margin-bottom: 1rem;">Cuidador: <strong>Mariana S.</strong> (Check-in verificado por GPS)</p>
-            
-            <div style="background: var(--light); padding: 1rem; border-radius: 8px; font-size: 0.85rem;">
-                <p>✓ Ração e Água Limpa — <span style="color: var(--success); font-weight:600;">Foto Comprovada</span></p>
-                <p>✓ Medicação das 14h — <span style="color: var(--success); font-weight:600;">Foto Comprovada</span></p>
-                <p>✓ Tempo de Permanência: <strong>45 min (em curso)</strong></p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Vantagens do Serviço -->
-    <section class="section" id="vantagens">
-        <div class="section-header">
-            <h2>Por Que Escolher o Atendimento Domiciliar?</h2>
-            <p>Os benefícios do cuidado no próprio ambiente onde o pet já está habituado</p>
-        </div>
-
-        <div class="grid-3">
-            <div class="card">
-                <div class="card-icon">🛡️</div>
-                <h3>Saúde & Proteção</h3>
-                <p>Baixo risco de doenças contagiosas, parasitas, pulgas e carrapatos ao evitar hospedagens coletivas.</p>
-            </div>
-
-            <div class="card">
-                <div class="card-icon">🏠</div>
-                <h3>Conforto no Próprio Lar</h3>
-                <p>O pet permanece na sua rotina habitual, reduzindo o estresse de adaptação e ansiedade de separação.</p>
-            </div>
-
-            <div class="card">
-                <div class="card-icon">🎯</div>
-                <h3>Cuidado Individualizado</h3>
-                <p>Ideal para gatos, filhotes sem vacinação completa, animais idosos, com necessidades especiais ou antissociais.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Ciclo Auditável em 5 Etapas -->
-    <section class="section" id="como-funciona" style="background: white; border-radius: 20px;">
-        <div class="section-header">
-            <h2>Ciclo Auditável em 5 Etapas</h2>
-            <p>Garantia técnica e transparência do início ao fim de cada visita</p>
-        </div>
-
-        <div class="steps-container">
-            <div class="step-item">
-                <div class="step-number">1</div>
-                <h4>Encontrar</h4>
-                <p style="font-size: 0.85rem; color: var(--gray);">Seleção por perfil qualificado</p>
-            </div>
-
-            <div class="step-item">
-                <div class="step-number">2</div>
-                <h4>Combinar</h4>
-                <p style="font-size: 0.85rem; color: var(--gray);">Plano de cuidados personalizado</p>
-            </div>
-
-            <div class="step-item">
-                <div class="step-number">3</div>
-                <h4>Acompanhar</h4>
-                <p style="font-size: 0.85rem; color: var(--gray);">Check-in por GPS e alertas</p>
-            </div>
-
-            <div class="step-item">
-                <div class="step-number">4</div>
-                <h4>Comprovar</h4>
-                <p style="font-size: 0.85rem; color: var(--gray);">Checklist verificado por fotos</p>
-            </div>
-
-            <div class="step-item">
-                <div class="step-number">5</div>
-                <h4>Avaliar</h4>
-                <p style="font-size: 0.85rem; color: var(--gray);">Diário consolidado e Índice de Confiabilidade</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Tecnologia e Segurança -->
-    <div class="tech-section" id="tecnologia">
-        <div class="section-header">
-            <h2>Diferenciais de Tecnologia e Segurança</h2>
-            <p>Auditoria objetiva e proteção de dados rigorosa (LGPD-First)</p>
-        </div>
-
-        <div class="tech-grid">
-            <div class="tech-card">
-                <h3>📍 Check-in por Geolocalização</h3>
-                <p>Validação geográfica de entrada e saída no raio exato do imóvel. Sem rastreamento contínuo no trajeto para respeitar a privacidade do cuidador.</p>
-            </div>
-
-            <div class="tech-card">
-                <h3>📸 Checklist Dinâmico por Foto</h3>
-                <p>O cuidador comprova a execução de cada rotina (alimentação, água limpa e administração de remédios) anexando fotos com horário exato.</p>
-            </div>
-
-            <div class="tech-card">
-                <h3>🚨 Alertas de Ocorrência</h3>
-                <p>Notificação imediata de imprevistos estruturados por níveis de severidade para ação rápida do tutor.</p>
-                <div class="alert-levels">
-                    <span class="level-tag level-green">Verde: Normal</span>
-                    <span class="level-tag level-yellow">Amarelo: Atenção</span>
-                    <span class="level-tag level-red">Vermelho: Emergência</span>
-                </div>
-            </div>
-
-            <div class="tech-card">
-                <h3>📊 Índice de Confiabilidade</h3>
-                <p>Pontuação objetiva do Pet Sitter calculada por algoritmos com base no histórico real de pontualidade, checklists cumpridos e avaliações.</p>
-            </div>
-        </div>
-    </div>
-
-    <!-- Footer -->
-    <footer>
-        <div class="logo" style="justify-content: center; color: white;">
-            🐾 PetCare Sitter
-        </div>
-        <p>Tecnologia e Segurança Pet — Acompanhamento e Comprovação Verificável de Serviços Domiciliares.</p>
-        <p>© 2026 PetCare Sitter. Todos os direitos reservados.</p>
-    </footer>
-
-</body>
-</html>
