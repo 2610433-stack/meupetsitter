@@ -1,0 +1,16 @@
+ Log de Interações da Sessão
+Criação da Landing Page Inicial (HTML + CSS)
+Solicitação: Criação de uma Landing Page para VSCode com base nas premissas e arquivos do projeto PetCare Sitter.
+Resultado: Desenvolvimento da estrutura completa em código único, abordando a proposta de valor auditável, o ciclo de atendimento em 5 etapas (Encontrar, Combinar, Acompanhar, Comprovar e Avaliar) e as vantagens do cuidado no próprio lar.
+Inserção da Imagem da Logo (babadepet.jpg)
+Solicitação: Ajuste no código para posicionar a imagem babadepet.jpg em tamanho médio no canto superior esquerdo do cabeçalho, antes do nome "PetCare Sitter".
+Resultado: Atualização do cabeçalho (<header>) e adição da classe CSS .logo-img para dimensionamento proporcional e arredondado.
+Guia de Publicação e Integração com o GitHub
+Solicitação: Instruções de como enviar o código HTML do VSCode para o GitHub.
+Resultado: Apresentação dos 3 métodos principais (Interface do VSCode, Terminal/Linha de comando Git e Upload pelo navegador), com dica adicional de hospedagem gratuita via GitHub Pages.
+Extração e Modularização do CSS (style.css)
+Solicitação: Transformação da estilização em um arquivo CSS dedicado para o VSCode.
+Resultado: Geração do arquivo style.css organizado e comentado por seções (Header, Hero, Cards, Tech, Footer e Responsividade) com orientação de inclusão via <link rel="stylesheet">.
+Consolidação Final da Landing Page (index.html)
+Solicitação: Disponibilização do código pronto para exibição e visualização da landing page no navegador.
+Resultado: Fornecimento do arquivo unificado pronto para execução via extensão Live Server ou abertura direta no navegador.
