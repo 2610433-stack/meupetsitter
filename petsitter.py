@@ -11,3 +11,6 @@ def new_func():
     iguana=int(input("Escreva quantas iguanas: "))
 
 new_func()
+print("Estamos felizes por ter você aqui")
+print("Seja bem vindo")
+print("volte sempre")
