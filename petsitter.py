@@ -10,3 +10,11 @@ print("Deixe seu pet conosco")
 print("Estamos felizes por ter você aqui")
 print("Seja bem vindo")
 print("volte sempre")
+# apenas vamos inserir alguns animais que estão conosco hoje #
+gatinhos=int(input("Digite um número: "))
+cachorrinhos=int(input("Digite outro número: "))
+total=gatinhos+cachorrinhos
+print("O total de pets conosco hoje é de: ", total)
+#nome dos cachorrinhos conosco hoje#
+cahorro1=input("Digite um nome: ")
+cachorro2=input("Digite outro nome: ")
